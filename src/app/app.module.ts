@@ -3,20 +3,40 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import {ROUTES} from "./app.routes";
 
-import { AppComponent } from './app.component'
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { RestauranteComponent } from './restaurante/restaurante.component';
+import { ItemsRestauranteComponent } from './restaurante/items-restaurante/items-restaurante.component'
+import {RestauranteService} from "./restaurante/restaurante.service";
+import { DetalhesRestauranteComponent } from './detalhes-restaurante/detalhes-restaurante.component';
+import { CarrinhoComponent } from './detalhes-restaurante/carrinho/carrinho.component';
+import { MenuItemComponent } from './detalhes-restaurante/menu-item/menu-item.component';
+import { MenuComponent } from './detalhes-restaurante/menu/menu.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    AboutComponent,
+    RestauranteComponent,
+    ItemsRestauranteComponent,
+    DetalhesRestauranteComponent,
+    CarrinhoComponent,
+    MenuItemComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [RestauranteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
