@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+
+import {RestauranteService} from "../restaurante/restaurante.service";
+import {ItemsRestauranteModel} from "../restaurante/items-restaurante/items-restaurante.model";
 
 @Component({
   selector: 'mt-detalhes-restaurante',
@@ -6,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalhesRestauranteComponent implements OnInit {
 
-  constructor() { }
+  restaurante: ItemsRestauranteModel
+  constructor(private restauranteService: RestauranteService) { }
 
   ngOnInit() {
+
+    this.restauranteService.restauranteById(this.route.snapshot.params['id'])
+      .subscribe(restaurante => this.restaurante = restaurante)
   }
 
 }
