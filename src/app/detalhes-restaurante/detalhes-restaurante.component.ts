@@ -11,7 +11,8 @@ import {ItemsRestauranteModel} from "../restaurante/items-restaurante/items-rest
 export class DetalhesRestauranteComponent implements OnInit {
 
   restaurante: ItemsRestauranteModel
-  constructor(private restauranteService: RestauranteService) { }
+
+  constructor(private restauranteService: RestauranteService, private route: ActivatedRoute) { }
 
   ngOnInit() {
 

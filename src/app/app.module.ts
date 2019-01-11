@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, LOCALE_ID} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -11,11 +11,14 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { RestauranteComponent } from './restaurante/restaurante.component';
 import { ItemsRestauranteComponent } from './restaurante/items-restaurante/items-restaurante.component'
-import {RestauranteService} from "./restaurante/restaurante.service";
+import { RestauranteService } from "./restaurante/restaurante.service";
 import { DetalhesRestauranteComponent } from './detalhes-restaurante/detalhes-restaurante.component';
 import { CarrinhoComponent } from './detalhes-restaurante/carrinho/carrinho.component';
 import { MenuItemComponent } from './detalhes-restaurante/menu-item/menu-item.component';
 import { MenuComponent } from './detalhes-restaurante/menu/menu.component';
+import { AvaliacoesComponent } from './detalhes-restaurante/avaliacoes/avaliacoes.component';
+import { CarrinhoService } from "./detalhes-restaurante/carrinho/carrinho.service";
+import { CompraComponent } from './compra/compra.component';
 
 
 @NgModule({
@@ -29,14 +32,16 @@ import { MenuComponent } from './detalhes-restaurante/menu/menu.component';
     DetalhesRestauranteComponent,
     CarrinhoComponent,
     MenuItemComponent,
-    MenuComponent
+    MenuComponent,
+    AvaliacoesComponent,
+    CompraComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RestauranteService],
+  providers: [RestauranteService, CarrinhoService, {provide:LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
