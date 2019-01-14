@@ -6,6 +6,7 @@ import {DetalhesRestauranteComponent} from "./detalhes-restaurante/detalhes-rest
 import {AvaliacoesComponent} from "./detalhes-restaurante/avaliacoes/avaliacoes.component";
 import {MenuComponent} from "./detalhes-restaurante/menu/menu.component";
 import {CompraComponent} from "./compra/compra.component";
+import {SumarioCompraComponent} from './sumario-compra/sumario-compra.component';
 
 export const ROUTES: Routes = [
   {path: '', component:HomeComponent},
@@ -15,8 +16,9 @@ export const ROUTES: Routes = [
     children: [
       {path: '', redirectTo: 'menu', pathMatch: 'full'},
       {path: 'menu', component: MenuComponent},
-      {path: 'avaliacoes', component:AvaliacoesComponent}
+      {path: 'avaliacoes', component: AvaliacoesComponent}
     ]},
+  {path: 'sumario-compra', component: SumarioCompraComponent},
   {path: 'compra', component: CompraComponent}
 
 ];

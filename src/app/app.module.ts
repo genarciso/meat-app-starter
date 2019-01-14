@@ -19,12 +19,14 @@ import { MenuComponent } from './detalhes-restaurante/menu/menu.component';
 import { AvaliacoesComponent } from './detalhes-restaurante/avaliacoes/avaliacoes.component';
 import { CarrinhoService } from './detalhes-restaurante/carrinho/carrinho.service';
 import { CompraComponent } from './compra/compra.component';
-import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { ItemCompraComponent } from './compra/item-compra/item-compra.component';
 import {CompraService} from './compra/compra.service';
 import { FreteComponent } from './compra/frete/frete.component';
+import { SumarioCompraComponent } from './sumario-compra/sumario-compra.component';
+import { RatingComponent } from './shared/rating/rating.component';
 
 
 @NgModule({
@@ -44,19 +46,22 @@ import { FreteComponent } from './compra/frete/frete.component';
     InputComponent,
     RadioComponent,
     ItemCompraComponent,
-    FreteComponent
+    FreteComponent,
+    SumarioCompraComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    ReactiveFormsModule
   ],
   providers: [
     RestauranteService,
     CarrinhoService,
     {provide: LOCALE_ID, useValue: 'pt-BR'},
-    CompraService
+    CompraService,
   ],
   bootstrap: [AppComponent]
 })
